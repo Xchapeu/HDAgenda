@@ -25,6 +25,18 @@ export const MainSchedule = () => {
         'Wesley'
     ]
 
+    const weekDay = [
+        "Domingo",
+        "Segunda-feira",
+        "Terça-feira",
+        "Quarta-feira",
+        "Quinta-feira",
+        "Sexta-feira",
+        "Sábado"
+    ]
+
+    const diaDaSemana = new Date().getDay()
+
     const shuffle = array => {
         let currentIndex = array.length, randomIndex;
         
@@ -67,7 +79,7 @@ export const MainSchedule = () => {
 
     return(
         <div className="main-container">
-            <h2>{ data }</h2>
+            <h2>{ data } - { weekDay[diaDaSemana] }</h2>
             <ul className="list-container">
                 {
                     agenda.map(a => <li key={a.hora - a.nome}><time>{a.hora}</time>  -  {a.nome}</li> )
